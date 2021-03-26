@@ -20,14 +20,14 @@ jobs:
         with:
           persist-credentials: false
 
-     # - name: 开始🔄自动同步🔄
-     #   uses: repo-sync/github-sync@v2
-      #  if: env.PAT 
-     #   with:
-      #    source_repo: "https://github.com/pm936/httpcatcher.git"
-      #    source_branch: "main"
-       #   destination_branch: "main"
-       #   github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
+     - name: 开始🔄自动同步🔄
+       uses: repo-sync/github-sync@v2
+        if: env.PAT 
+        with:
+          source_repo: "https://github.com/tangyingjun999/httpcatcher.git"
+         source_branch: "main"
+         destination_branch: "main"
+         github_token: ${{ github.event.client_payload.PAT || secrets.PAT }}
       # 我自己同步到gitee使用，其他人可忽略
       - name: sync github -> gitee
         uses: Yikun/hub-mirror-action@master
