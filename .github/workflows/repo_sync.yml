@@ -6,7 +6,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: sync-Sunert-scripts
+    types: sync-scripts
 jobs:
   repo-sync:
     env:
@@ -29,7 +29,7 @@ jobs:
           github_token: ${{ secrets.PAT }}
       # 我自己同步到gitee使用，其他人可忽略
       - name: sync github -> gitee
-        uses: Yikun/hub-mirror-action@master
+        uses: tangyingjun999/httpcatcher@master
         if: env.dst_key
         with:
           # 必选，需要同步的Github用户（源）
